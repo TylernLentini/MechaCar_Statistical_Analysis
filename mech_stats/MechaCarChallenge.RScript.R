@@ -32,4 +32,18 @@ View(susp_coil_summary)
 susp_coil_summary2 <- coil_df  %>% group_by(Manufacturing_Lot)  %>% summarize(Mean=mean(PSI),Median=median(PSI),Variance=var(PSI),SD=sd(PSI), .groups = 'keep')
 View(susp_coil_summary2)
 
+#Deliverable 3
+
+#T-test ALL LOTS
+t.test(coil_df$PSI, mu=mean(coil_df$PSI))
+
+#T-test lot 1
+filter_table1 <- subset(coil_df, Manufacturing_Lot == "Lot1")
+t.test(filter_table1$PSI, mu=mean(coil_df$PSI))
+#T-test Lot 2
+filter_table2 <- subset(coil_df, Manufacturing_Lot == "Lot2")
+t.test(filter_table2$PSI, mu=mean(coil_df$PSI))
+#T-test Lot 3 
+filter_table3 <- subset(coil_df, Manufacturing_Lot == "Lot3")
+t.test(filter_table3$PSI, mu=mean(coil_df$PSI))
 
